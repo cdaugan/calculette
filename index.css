@@ -1,0 +1,33 @@
+.flip-horizontally {
+    transform: scaleX(-1);
+}
+
+.flip-vertically {
+    transform: scaleY(-1);
+}
+
+.frame {
+    width: 1210px;
+}
+
+#bulle {
+    position: relative;
+    top: -282px;
+    left: -108px;
+}
+
+#question {
+    position: relative;
+    top: -410px;
+    left: -314px;
+    font-size: 46px;
+}
+
+
+#reponse-decor {
+    float: right;
+}
+
+input {
+    font-size: 46px;
+}
