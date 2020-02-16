@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Calculette de Clémence</title>
     <link href="index.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="./index.js"></script>
 </head>
 
 <body>
@@ -14,12 +16,15 @@
             <img src="images/bulle.jpg" class="flip-horizontally" id="bulle" />
             <span id="question">3x2 =</span>
         </div>
-        <div id="reponse-decor">
-            <input type="number">
+        <form id="reponse-decor">
+            <input id="reponse" type="number">
             <input type="submit" value="OK">
-        </div>
+        </form>
+        <div id="score">21</div>
 
     </div>
+    
+
 </body>
 
 </html>

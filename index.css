@@ -31,3 +31,12 @@
 input {
     font-size: 46px;
 }
+
+#score {
+    float: right;
+    position: relative;
+    top: -566px;
+    left: 645px;
+    font-size: 73px;
+    text-align: right;
+}
