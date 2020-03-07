@@ -40,3 +40,24 @@ input {
     font-size: 73px;
     text-align: right;
 }
+
+#scorePourcent {
+    float: right;
+    position: relative;
+    top: -566px;
+    left: 645px;
+    font-size: 73px;
+    text-align: right;
+}
+
+#reponse {
+    background-color:white
+}
+
+#reponse.bonne {
+    background-color:green;
+}
+
+#reponse.mauvaise{
+    background-color: red;
+}
