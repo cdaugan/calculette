@@ -12,20 +12,23 @@
 
 #bulle {
     position: relative;
-    top: -282px;
-    left: -108px;
+    top: -27px;
+    left: -40px;
+    width: 221px;
 }
 
 #question {
     position: relative;
-    top: -410px;
-    left: -314px;
+    top: -122px;
+    left: -214px;
     font-size: 46px;
 }
 
 
 #reponse-decor {
-    float: right;
+    position: relative;
+    top: 400px;
+    left: 50%;
 }
 
 input {
@@ -51,13 +54,27 @@ input {
 }
 
 #reponse {
-    background-color:white
+    background-color: white
 }
 
 #reponse.bonne {
-    background-color:green;
+    background-color: green;
 }
 
-#reponse.mauvaise{
+#reponse.mauvaise {
     background-color: red;
+}
+
+body.bonne {
+    background-color: green;
+}
+
+body.mauvaise {
+    background-color: red;
+}
+
+img.fond {
+    width: 400px;
+    top: 185px;
+    position: relative;
 }
