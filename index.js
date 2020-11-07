@@ -18,6 +18,12 @@ $(function () {
             calcul: function (op1, op2) {
                 return op1 * op2;
             }
+        },
+        {
+            nom: ':',
+            calcul: function (op1, op2) {
+                return op1 / op2;
+            }
         }
     ];
 
@@ -35,6 +41,7 @@ $(function () {
 
     let score = 0;
     let nbQuestions = 0;
+    let temps_Restant = 60;
 
     function afficherQuestion(question) {
         $('#question').text(question);
@@ -44,17 +51,52 @@ $(function () {
 
     let question = null;
 
+    function demarrer() {
+        score =0;
+        nbQuestions=0;
+        temps_Restant = 60;
+        let miseAJourTemps = function () {
+            // Mettre à jour le temps restant
+            $('#tempsRestant').text('' + temps_Restant + 's');
+
+        }
+        debugger;
+        let miseAJourTempsDans1s = function () {
+            setTimeout(function () {
+                temps_Restant = temps_Restant - 1;
+                miseAJourTemps();
+                if (temps_Restant < 0) {
+                    $('#tempsRestant').text('Terminé !');
+                    $("#start").show();
+                } else {
+                    miseAJourTempsDans1s();
+                }
+            }, 1000);
+        };
+        miseAJourTemps();
+        miseAJourTempsDans1s();
+
+        // Initialisation : première question
+        nouvelleQuestion();
+    }
+
     function play(type) {
         var audio = $('#audio-' + type)[0];
         audio.play();
         setTimeout(function () {
             audio.pause();
             audio.currentTime = 0;
-        }, 1000)
+        }, 1000);
     }
 
     function nouvelleQuestion() {
         question = genererQuestion();
+        let bonneReponse = operations[question.operation].calcul(question.op1, question.op2);
+        if (bonneReponse < 0 || Math.floor(bonneReponse) != bonneReponse) {
+            // Pas de nombre négatif authorisé ni de décimaux
+            nouvelleQuestion();
+            return;
+        }
         afficherQuestion(question.op1 + operations[question.operation].nom + question.op2 + ' =');
         $('#reponse').trigger('focus');
         $('#reponse').val('');
@@ -70,7 +112,7 @@ $(function () {
             // $('#reponse').addClass("bonne");
             $('body').removeClass("mauvaise");
             $('body').addClass("bonne");
-            play("bonne") ;
+            play("bonne");
 
             score++; // score = score + 1; score += 1;
         } else {
@@ -78,19 +120,22 @@ $(function () {
             // $('#reponse').addClass("mauvaise"); 
             $('body').removeClass("bonne");
             $('body').addClass("mauvaise");
-            play("mauvaise") ;
+            play("mauvaise");
         }
         nbQuestions++;
         nouvelleQuestion();
     })
 
-    // Initialisation : première question
-    nouvelleQuestion();
 
     $("#bouton-bonne").on("click", function () {
         play("bonne");
     });
     $("#bouton-mauvaise").on("click", function () {
         play("mauvaise");
+    });
+
+    $("#start").on("click", function () {
+        demarrer();
+        $("#start").hide();
     });
 })

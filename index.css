@@ -38,16 +38,37 @@ input {
 #score {
     float: right;
     position: relative;
-    top: -566px;
+    top: -91px;
     left: 645px;
     font-size: 73px;
     text-align: right;
 }
 
+#tempsRestant {
+    float: right;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    font-size: 73px;
+    text-align: right;
+}
+
+#start {
+    float: right;
+    position: relative;
+    top: 325px;
+    left: 44%;
+    height: 59px;
+    width: 173px;
+    font-size: 37px;
+    background-color: green;
+    color: lightgreen;
+}
+
 #scorePourcent {
     float: right;
     position: relative;
-    top: -566px;
+    top: -91px;
     left: 645px;
     font-size: 73px;
     text-align: right;
